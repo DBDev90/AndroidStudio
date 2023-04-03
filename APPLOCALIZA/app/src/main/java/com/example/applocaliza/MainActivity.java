@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void getLocal(View v) {
         try {
 
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+                ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.ACCESS_NETWORK_STATE}, 1);
+                return;
+            }
+
             local = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             local.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 1, this);
         }catch (SecurityException e){
