@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         try {
             SmsManager sms = SmsManager.getDefault();
-            sms.sendTextMessage(n, null, lat + String.valueOf(lon), null, null);
+            sms.sendTextMessage(n, null, String.valueOf(lat +','+ lon), null, null);
             Toast.makeText(this, "ENVIADO", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             Toast.makeText(this, "FALHA", Toast.LENGTH_LONG).show();
