@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud"
+    tools:context=".TelaLogin">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_user"
+        android:layout_width="157dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/user_login"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_nome"
+        style="@style/edit_text"
+        android:hint="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circle_user"
+        app:layout_constraintVertical_bias="0.11"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/editText_senha"
+        style="@style/edit_text"
+        android:hint="Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nome"
+        app:layout_constraintVertical_bias="0.125"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BTNEFETUARLOGIN"
+        style="@style/button"
+        android:layout_marginBottom="136dp"
+        android:text="ENTRAR"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
