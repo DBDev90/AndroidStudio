@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
+import android.telephony.SmsManager;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,5 +46,16 @@ class Ponte{
     @JavascriptInterface
     public void mensagem(String data){
         Toast.makeText(context, data, Toast.LENGTH_SHORT).show();
+    }
+
+    @JavascriptInterface
+    public void enviaSMS (String n, String m) {
+        try {
+            SmsManager sms = SmsManager.getDefault();
+            sms.sendTextMessage(n, null, m, null, null);
+            Toast.makeText(context, "ENVIADO", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(context, "FALHA", Toast.LENGTH_SHORT).show();
+        }
     }
 }
