@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form>
+            <p>Local <input type="text" id="local"/></p>
+            <p>Data <input type="text" id="data"/></p>
+            <p>Valor <input type="text" id="valor"/></p>
+            <button onclick="insere()">Inserir</button>
+            <button onclick="consulta()">Consultar</button>
+        </form>
+
+        <textarea id="consulta" rows="10" cols="33">
+
+        </textarea>
+
+        <script>
+            function insere(){
+                l = document.getElementById("local").value;
+                d = document.getElementById("data").value;
+                v = document.getElementById("valor").value;
+                Android.inserir(l,d,v);
+            }
+
+            function consulta(){
+                var retorno = Android.consultar();
+                document.getElementById("consulta").value = retorno;
+            }
+        </script>
+    </body>
+</html>
