@@ -1,0 +1,29 @@
+
+
+
+<!DOCTYPE html>
+
+<head>
+
+	<script>
+		function grava() {
+			var nome  = document.getElementById("nome").value;
+			var email = document.getElementById("email").value;
+			var senha = document.getElementById("senha").value;
+			var fone = document.getElementById("fone").value;
+			Android.insereUsuario(nome,email,senha,fone);
+		}
+	</script>
+</head>
+<html>
+	<body>
+	<form>
+			<h3>Sign Up</h3>
+			<input type="text" id="nome" Name="nome" placeholder="Nome" required="">
+			<input type="text" id = "email" Name="email" placeholder="Email" required="">
+			<input type="password" id = "senha" Name="senha" placeholder="Senha" required="">
+			<input type="text" id = "fone" Name="fone" placeholder="Fone" required="">
+		    <button value="Sign Up" onclick="grava()">Gravar</button>
+	</form>
+	</body>
+</html>
