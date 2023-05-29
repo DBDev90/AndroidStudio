@@ -3,6 +3,7 @@ package com.example.projetofinal;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -28,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (android.os.Build.VERSION.SDK_INT > 9)
+        if (Build.VERSION.SDK_INT > 9)
         {
-            StrictMode.ThreadPolicy policy = new
-                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
 
@@ -65,7 +65,7 @@ class Ponte {
                 .put("senha", senha)
                 .put("fone", fone)
                 .toString();
-
+        String resposta="";
         try {
             URL url = new URL("http://www.datalakeanalytic.com/si/grava.php");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -78,11 +78,12 @@ class Ponte {
 
             connection.connect();
 
-            String resposta = new Scanner(connection.getInputStream()).next();
+            resposta = new Scanner(connection.getInputStream()).next();
             mensagem (resposta);
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+          Log.d("[Douglas]", e.toString() + " Resposta:" + resposta);
+          mensagem ("Verifique sua conexão");
         }
         return 0;
     }
